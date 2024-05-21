@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "WeatherWear",
   description:
-    "Trouvez des inspirations pour vour habillez en fonction de la météo",
+    "Trouvez des inspirations pour vour habiller en fonction de la météo",
 };
 
 export default function RootLayout({
