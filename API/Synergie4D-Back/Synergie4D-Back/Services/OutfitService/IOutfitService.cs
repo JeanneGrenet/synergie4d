@@ -10,6 +10,8 @@ namespace Synergie4D_Back.Services.OutfitService
 
         IEnumerable<Outfit> GetAllOutfits();
 
+        IEnumerable<Outfit> GetOutfitsWithParameters(double temperature);
+
         #endregion CRUD Outfit
     }
 }

@@ -15,10 +15,18 @@ namespace Synergie4D_Back.Controllers
             _outfitService = outfitService;
         }
 
-        [HttpGet(Name = "GetAllOutfits")]
-        public IEnumerable<Outfit> Get()
+        [HttpGet("GetAll")]
+        public IEnumerable<Outfit> GetAllOutfits()
         {
             IEnumerable<Outfit> outfits = _outfitService.GetAllOutfits();
+
+            return outfits;
+        }
+
+        [HttpGet("GetWithParameters/{temperature}")]
+        public IEnumerable<Outfit> GetOutfitsWithParameters(double temperature)
+        {
+            IEnumerable<Outfit> outfits = _outfitService.GetOutfitsWithParameters(temperature);
 
             return outfits;
         }
