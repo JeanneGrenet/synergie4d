@@ -1,14 +1,11 @@
-import Image from "next/image";
 import Header from "./Header";
-import Selection from "./Selection";
-import Result from "./Result";
+import Outfits from "./Outfits";
 
 export default function Home() {
   return (
     <main className="min-h-screen">
       <Header />
-      <Selection />
-      <Result />
+      <Outfits />
     </main>
   );
 }
