@@ -38,7 +38,7 @@ export default function Outfits() {
   };
 
   async function fetchOutfits() {
-    const response = await fetch("http://172.23.144.1:5000/api/outfits/getall");
+    const response = await fetch("https://localhost:7247/api/outfits/GetAll");
     console.log(response);
     const outfits = await response.json();
     console.log(outfits);
