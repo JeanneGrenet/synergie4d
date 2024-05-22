@@ -7,9 +7,7 @@ namespace Synergie4D_Back.Models.Outfit
     {
         public int Id { get; set; }
         public string Description { get; set; }
-
-        [JsonConverter(typeof(JsonStringEnumConverter))]
-        public Style Style { get; set; }
+        public List <string> Styles { get; set; }
 
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public Temperature Weather { get; set; }
