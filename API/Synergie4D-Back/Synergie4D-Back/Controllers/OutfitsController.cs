@@ -40,6 +40,5 @@ namespace Synergie4D_Back.Controllers
 
             return outfits;
         }
-
     }
 }
