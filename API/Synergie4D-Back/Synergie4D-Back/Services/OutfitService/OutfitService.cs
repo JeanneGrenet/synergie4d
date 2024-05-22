@@ -62,19 +62,22 @@ namespace Synergie4D_Back.Services.OutfitService
             return outfitList;
         }
 
-        public IEnumerable<Outfit> GetOutfitsWithParameters(double temperature)
+        public IEnumerable<Outfit> GetOutfitsWithParameters(double temperature, string style)
         {
             List<Outfit> selectedOutfits = [];
 
             foreach (Outfit outfit in outfitList)
             {
-                if (temperature >= 20 && outfit.Weather == Temperature.Hot)
+                if (style == outfit.Style.ToString())
                 {
-                    selectedOutfits.Add(outfit);
-                }
-                else if (temperature < 20 && outfit.Weather == Temperature.Cold)
-                {
-                    selectedOutfits.Add(outfit);
+                    if (temperature >= 20 && outfit.Weather == Temperature.Hot)
+                    {
+                        selectedOutfits.Add(outfit);
+                    }
+                    else if (temperature < 20 && outfit.Weather == Temperature.Cold)
+                    {
+                        selectedOutfits.Add(outfit);
+                    }
                 }
             }
 

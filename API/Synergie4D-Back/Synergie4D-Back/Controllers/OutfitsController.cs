@@ -23,10 +23,10 @@ namespace Synergie4D_Back.Controllers
             return outfits;
         }
 
-        [HttpGet("GetWithParameters/{temperature}")]
-        public IEnumerable<Outfit> GetOutfitsWithParameters(double temperature)
+        [HttpGet("GetWithParameters/{temperature}/{style}")]
+        public IEnumerable<Outfit> GetOutfitsWithParameters(double temperature, string style)
         {
-            IEnumerable<Outfit> outfits = _outfitService.GetOutfitsWithParameters(temperature);
+            IEnumerable<Outfit> outfits = _outfitService.GetOutfitsWithParameters(temperature, style);
 
             return outfits;
         }
