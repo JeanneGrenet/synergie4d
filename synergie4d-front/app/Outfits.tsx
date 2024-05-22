@@ -1,5 +1,5 @@
 "use client";
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, Key, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -10,6 +10,14 @@ import {
   CardHeader,
 } from "@/components/ui/card";
 
+export type OutfitsProps = {
+  id: Key,
+  description:string,
+  style: string,
+  weather: string,
+  slug: string,
+};
+
 export default function Outfits() {
   const styles = [
     { id: "Chic", value: "Chic" },
@@ -19,6 +27,7 @@ export default function Outfits() {
   ];
   const [selectedStyle, setSelectedStyle] = useState<string>();
   const [city, setCity] = useState("");
+  const [outfits, setOutfits] = useState<Array<OutfitsProps>>();
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -40,7 +49,7 @@ export default function Outfits() {
   async function fetchOutfits() {
     const response = await fetch("https://localhost:7247/api/outfits/GetAll");
     console.log(response);
-    const outfits = await response.json();
+    setOutfits(await response.json());
     console.log(outfits);
   }
 
@@ -58,7 +67,7 @@ export default function Outfits() {
   //       slug: "tenue-2",
   //     },
   //   ];
-  const outfits = null;
+
   return (
     <div className="py-6 px-4 mx-auto max-w-4xl flex flex-col gap-4">
       <h2 className="text-lg text-center pb-4">Faites votre choix !</h2>
@@ -110,14 +119,17 @@ export default function Outfits() {
 
           {outfits.map((outfit) => (
             <Card key={outfit.id}>
-              <CardHeader>{outfit.name}</CardHeader>
+              <CardHeader>{outfit.description}</CardHeader>
               <CardContent>Image de la tenue</CardContent>
               <CardFooter className="flex gap-2">
-                {outfit.styles.map((style) => (
+                {/* {outfit.styles.map((style) => (
                   <Badge className="text-black" key={style}>
                     {style}
                   </Badge>
-                ))}
+                ))} */}
+                  <Badge className="text-black">
+                    {outfit.style}
+                  </Badge>
               </CardFooter>
             </Card>
           ))}
