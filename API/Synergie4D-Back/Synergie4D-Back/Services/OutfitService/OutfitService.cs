@@ -60,7 +60,7 @@ namespace Synergie4D_Back.Services.OutfitService
                 Id = 8,
                 Description = "T-shirt / sweat / jogging / basket",
                 Style = Style.Sporty,
-                Weather = Temperature.Hot,
+                Weather = Temperature.Cold,
                 Slug = "t-shirt-sweat-jogging-basket"
             }
         ];
