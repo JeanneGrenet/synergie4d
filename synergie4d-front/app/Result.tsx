@@ -37,7 +37,9 @@ export default function Result() {
           <CardContent>Image de la tenue</CardContent>
           <CardFooter className="flex gap-2">
             {outfit.styles.map((style) => (
-              <Badge key={style}>{style}</Badge>
+              <Badge className="text-black" key={style}>
+                {style}
+              </Badge>
             ))}
           </CardFooter>
         </Card>

@@ -11,19 +11,20 @@ export default function Selection() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    // const response = await fetch("/api/submit", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({ city, selectedStyle }),
-    // });
+    const response = await fetch("http://172.23.144.1:5000/api/outfits", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ city, selectedStyle }),
+    });
 
-    // const data = await response.json();
-    // console.log(data);
+    const data = await response.json();
+    console.log(data);
   };
   return (
     <div className="py-6 px-4">
+      <h2 className="text-lg text-center pb-4">Faites votre choix !</h2>
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col gap-4">
           <Input
@@ -31,6 +32,7 @@ export default function Selection() {
             placeholder="Ville"
             value={city}
             onChange={(e) => setCity(e.target.value)}
+            className="border border-primary"
           />
           <div className="grid grid-cols-2 gap-4">
             {styles.map((style) => (
@@ -48,8 +50,8 @@ export default function Selection() {
                   htmlFor={style}
                   className={`cursor-pointer rounded-md border px-4 py-2 flex flex-1 justify-center ${
                     selectedStyle === style
-                      ? "bg-gray-600 text-white"
-                      : "bg-gray-200 text-gray-700"
+                      ? "bg-gray-100 border-secondary"
+                      : "bg-white border-primary"
                   }`}
                 >
                   {style}
@@ -57,7 +59,9 @@ export default function Selection() {
               </div>
             ))}
           </div>
-          <Button type="submit">Envoyer</Button>
+          <Button type="submit" className="text-black">
+            Envoyer
+          </Button>
         </div>
       </form>
     </div>

@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Montserrat, Montserrat_Alternates } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-sans" });
+const montserratAlternates = Montserrat_Alternates({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-heading",
+});
 
 export const metadata: Metadata = {
   title: "WeatherWear",
@@ -17,7 +22,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body
+        className={`${(montserrat.variable, montserratAlternates.variable)} `}
+      >
+        {children}
+      </body>
     </html>
   );
 }

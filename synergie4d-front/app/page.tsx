@@ -7,8 +7,10 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Header />
-      <Selection />
-      <Result />
+      <div className="mx-auto max-w-3xl">
+        <Selection />
+        <Result />
+      </div>
     </main>
   );
 }
