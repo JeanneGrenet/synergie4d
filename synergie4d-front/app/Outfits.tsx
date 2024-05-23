@@ -121,10 +121,13 @@ export default function Outfits() {
               <CardHeader>{outfit.description}</CardHeader>
               <CardContent className="flex justify-center"><Image src={`/outfits/${outfit.slug}.png`} alt={outfit.description} width={150} height={200}/></CardContent>
               <CardFooter className="flex gap-2">
-                {outfit.styles.map((style) => (
-                  <Badge className="text-black" key={style}>
-                    {style}
-                  </Badge>
+                {outfit.styles.map((outfitStyle) => (
+                  styles.map((style) => (
+                   style.id === outfitStyle &&
+                      <Badge className="text-black" key={outfitStyle}>
+                      {style.value}
+                      </Badge>
+                  ))
                 ))}
               </CardFooter>
             </Card>
