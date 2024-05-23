@@ -24,21 +24,21 @@ namespace Synergie4D_Back.Services.OutfitService
             new() {
                 Id = 3,
                 Description = "Chemise / pantalon / chaussures de ville",
-                Styles = ["Professional"],
+                Styles = ["Professional", "Chic"],
                 Weather = Temperature.Cold,
                 Slug = "chemise-pantalon-chaussure-de-ville"
             },
             new() {
                 Id = 4,
                 Description = "Polo / jean / basket",
-                Styles = ["Professional"],
+                Styles = ["Professional","Relaxed"],
                 Weather = Temperature.Hot,
                 Slug = "polo-jean-basket"
             },
             new() {
                 Id = 5,
                 Description = "T-shirt / short / basket",
-                Styles = ["Sporty"],
+                Styles = ["Sporty", "Relaxed"],
                 Weather = Temperature.Hot,
                 Slug = "t-shirt-short-basket"
             },
@@ -52,14 +52,14 @@ namespace Synergie4D_Back.Services.OutfitService
             new() {
                 Id = 7,
                 Description = "T-shirt / pull / pantalon / chaussures de ville",
-                Styles = ["Relaxed"],
+                Styles = ["Relaxed", "Professional"],
                 Weather = Temperature.Cold,
                 Slug = "t-shirt-pull-pantalon-chaussure-de-ville"
             },
             new() {
                 Id = 8,
                 Description = "T-shirt / sweat / jogging / basket",
-                Styles = ["Sporty"],
+                Styles = ["Sporty","Relaxed"],
                 Weather = Temperature.Cold,
                 Slug = "t-shirt-sweat-jogging-basket"
             },
