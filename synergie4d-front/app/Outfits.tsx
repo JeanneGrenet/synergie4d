@@ -111,10 +111,16 @@ export default function Outfits() {
       {errorMessage && <p>{errorMessage}</p>}
       {(!!outfits && !!weather) && (
         <div className="flex flex-col gap-4">
-          <p className="text-lg ">
-            Il fait en moyenne {weather.temperature} °C à <strong>{currentCity}</strong> aujourd&apos;hui, nous vous proposons donc les
-            tenues suivantes :
-          </p>
+          {outfits.length > 1
+          ? <p className="text-lg ">
+              Il fait en moyenne {weather.temperature} °C à <strong>{currentCity}</strong> aujourd&apos;hui, nous vous proposons donc les
+              tenues suivantes :
+            </p>
+          : <p className="text-lg ">
+              Il fait en moyenne {weather.temperature} °C à <strong>{currentCity}</strong> aujourd&apos;hui, nous vous proposons donc la
+              tenue suivante :
+            </p>
+          }
         <div className="md:grid md:grid-cols-2 gap-4 flex flex-col">
           {outfits.map((outfit) => (
             <Card key={outfit.id}>
