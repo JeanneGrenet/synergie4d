@@ -19,6 +19,12 @@ export type OutfitsProps = {
   slug: string,
 };
 
+export type WeatherProps = {
+city: string,
+temperature: string,
+weatherDescription: string
+};
+
 export default function Outfits() {
   const styles = [
     { id: "Chic", value: "Chic" },
@@ -29,9 +35,9 @@ export default function Outfits() {
   const [selectedStyle, setSelectedStyle] = useState<string>();
   const [city, setCity] = useState("");
   const [currentCity, setCurrentCity] = useState("");
-
   const [outfits, setOutfits] = useState<Array<OutfitsProps>>();
   const [errorMessage, setErrorMessage] = useState('');
+  const [weather, setWeather] = useState<WeatherProps>();
 
   const handleSubmit = async (e: FormEvent) => {
     setCurrentCity(capitalizeFirstLetter(city))
@@ -39,10 +45,16 @@ export default function Outfits() {
     setErrorMessage('')
     e.preventDefault();
     try{
-      const response = await fetch(`https://localhost:7247/api/Outfits/GetWithParameters/${currentCity}/${selectedStyle}`);
+      const response = await fetch(`https://localhost:7247/api/Outfits/GetWithParameters/${city}/${selectedStyle}`);
       setOutfits(await response.json());
     }catch (err) {
       setErrorMessage('Cette ville n\'est pas valide, veuillez réessayer');
+    }
+    try{
+      const responseWeather = await fetch(`https://localhost:7247/api/Weather/?city=${city}`);
+      setWeather(await responseWeather.json());
+    }catch (err) {
+      setErrorMessage('Impossible de récupérer la météo pour cette ville');
     }
   
   };
@@ -96,10 +108,10 @@ export default function Outfits() {
         </div>
       </form>
       {errorMessage && <p>{errorMessage}</p>}
-      {!!outfits && (
+      {(!!outfits && !!weather) && (
         <div className="flex flex-col gap-4">
           <p className="text-lg ">
-            Selon la météo à <strong>{currentCity}</strong> nous vous proposons les
+            Il fait {weather.temperature} °C à <strong>{currentCity}</strong> nous vous proposons donc les
             tenues suivantes :
           </p>
 
