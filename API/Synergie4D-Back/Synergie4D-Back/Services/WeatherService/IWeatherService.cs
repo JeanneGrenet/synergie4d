@@ -4,6 +4,8 @@ namespace Synergie4D_Back.Services.WeatherService
 {
     public interface IWeatherService
     {
-        Task<Weather> GetWeatherAsync(string city);
+        Task<Weather> GetCurrentTemperatureAsync(string city);
+
+        Task<Weather> GetAverageTemperatureAsync(string city);
     }
 }

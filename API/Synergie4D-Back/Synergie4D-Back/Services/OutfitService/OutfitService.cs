@@ -94,10 +94,5 @@ namespace Synergie4D_Back.Services.OutfitService
 
             return selectedOutfits;
         }
-
-        public Outfit GetOutfitById(int outfitId)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
