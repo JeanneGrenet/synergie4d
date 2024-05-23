@@ -52,7 +52,7 @@ export default function Outfits() {
       setErrorMessage('Cette ville n\'est pas valide, veuillez réessayer');
     }
     try{
-      const responseWeather = await fetch(`https://localhost:7247/api/Weather/?city=${city}`);
+      const responseWeather = await fetch(`https://localhost:7247/api/Weather/GetAverageTemperature/${city}`);
       setWeather(await responseWeather.json());
     }catch (err) {
       setErrorMessage('Impossible de récupérer la météo pour cette ville');
@@ -112,14 +112,14 @@ export default function Outfits() {
       {(!!outfits && !!weather) && (
         <div className="flex flex-col gap-4">
           <p className="text-lg ">
-            Il fait {weather.temperature} °C à <strong>{currentCity}</strong> nous vous proposons donc les
+            Il fait en moyenne {weather.temperature} °C à <strong>{currentCity}</strong> aujourd&apos;hui, nous vous proposons donc les
             tenues suivantes :
           </p>
         <div className="md:grid md:grid-cols-2 gap-4 flex flex-col">
           {outfits.map((outfit) => (
             <Card key={outfit.id}>
               <CardHeader>{outfit.description}</CardHeader>
-              <CardContent className="flex justify-center"><Image src={`/outfits/${outfit.slug}.png`} alt={outfit.description} width={150} height={200}/></CardContent>
+              <CardContent className="flex justify-center"><Image src={`/outfits/${outfit.slug}.svg`} alt={outfit.description} width={150} height={200}/></CardContent>
               <CardFooter className="flex gap-2">
                 {outfit.styles.map((outfitStyle) => (
                   styles.map((style) => (

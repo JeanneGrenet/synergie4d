@@ -23,17 +23,17 @@ namespace Synergie4D_Back.Services.OutfitService
             },
             new() {
                 Id = 3,
-                Description = "Chemise / pantalon / chaussure de ville",
+                Description = "Chemise / pantalon / chaussures de ville",
                 Styles = ["Professional"],
                 Weather = Temperature.Cold,
                 Slug = "chemise-pantalon-chaussure-de-ville"
             },
             new() {
                 Id = 4,
-                Description = "Polo / pantalon / basket",
+                Description = "Polo / jean / basket",
                 Styles = ["Professional"],
                 Weather = Temperature.Hot,
-                Slug = "polo-pantalon-basket"
+                Slug = "polo-jean-basket"
             },
             new() {
                 Id = 5,
@@ -44,14 +44,14 @@ namespace Synergie4D_Back.Services.OutfitService
             },
             new() {
                 Id = 6,
-                Description = "Costume / chaussure de ville",
+                Description = "Costume / chaussures de ville",
                 Styles = ["Professional", "Chic"],
                 Weather = Temperature.Cold,
                 Slug = "costume-chaussure-de-ville",
             },
             new() {
                 Id = 7,
-                Description = "T-shirt / pull / pantalon / chaussure de ville",
+                Description = "T-shirt / pull / pantalon / chaussures de ville",
                 Styles = ["Relaxed"],
                 Weather = Temperature.Cold,
                 Slug = "t-shirt-pull-pantalon-chaussure-de-ville"
@@ -62,6 +62,13 @@ namespace Synergie4D_Back.Services.OutfitService
                 Styles = ["Sporty"],
                 Weather = Temperature.Cold,
                 Slug = "t-shirt-sweat-jogging-basket"
+            },
+            new() {
+                Id = 8,
+                Description = "Polo / pantalon / chaussures de ville",
+                Styles = ["Professional","Chic"],
+                Weather = Temperature.Hot,
+                Slug = "polo-pantalon-chaussure-de-ville"
             }
         ];
 
