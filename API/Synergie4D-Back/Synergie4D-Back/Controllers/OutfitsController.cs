@@ -33,7 +33,7 @@ namespace Synergie4D_Back.Controllers
         [HttpGet("GetWithParameters/{city}/{style}")]
         public async Task<IEnumerable<Outfit>> GetOutfitsWithParameters(string city, string style)
         {
-            Weather weather = await _weatherService.GetWeatherAsync(city);
+            Weather weather = await _weatherService.GetAverageTemperatureAsync(city);
             double temperature = weather.Temperature;
 
             IEnumerable<Outfit> outfits = _outfitService.GetOutfitsWithParameters(temperature, style);

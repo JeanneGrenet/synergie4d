@@ -16,10 +16,17 @@ namespace Synergie4D_Back.Controllers
             _weatherService = weatherService;
         }
 
-        [HttpGet(Name = "GetWeather")]
+        [HttpGet("GetCurrentTemperature/{city}")]
         public async Task<Weather> Get(string city)
         {
-            Weather weather = await _weatherService.GetWeatherAsync(city);
+            Weather weather = await _weatherService.GetCurrentTemperatureAsync(city);
+
+            return weather;
+        }
+        [HttpGet("GetAverageTemperature/{city}")]
+        public async Task<Weather> GetForecastWeather(string city)
+        {
+            Weather weather = await _weatherService.GetAverageTemperatureAsync(city);
 
             return weather;
         }
