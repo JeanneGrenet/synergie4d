@@ -10,6 +10,7 @@ import {
   CardHeader,
 } from "@/components/ui/card";
 import { capitalizeFirstLetter } from "@/utils/stringUtils";
+import Image from "next/image";
 
 export type OutfitsProps = {
   id: Key,
@@ -60,7 +61,7 @@ export default function Outfits() {
   };
 
   return (
-    <div className="py-6 px-4 mx-auto max-w-4xl flex flex-col gap-4">
+    <div className="py-6 px-4 mx-auto max-w-4xl flex flex-col gap-4 mb-10">
       <h2 className="text-lg text-center pb-4">Faites votre choix !</h2>
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col gap-4">
@@ -114,11 +115,11 @@ export default function Outfits() {
             Il fait {weather.temperature} °C à <strong>{currentCity}</strong> nous vous proposons donc les
             tenues suivantes :
           </p>
-
+        <div className="md:grid md:grid-cols-2 gap-4 flex flex-col">
           {outfits.map((outfit) => (
             <Card key={outfit.id}>
               <CardHeader>{outfit.description}</CardHeader>
-              <CardContent>Image de la tenue</CardContent>
+              <CardContent className="flex justify-center"><Image src={`/outfits/${outfit.slug}.png`} alt={outfit.description} width={150} height={200}/></CardContent>
               <CardFooter className="flex gap-2">
                 {outfit.styles.map((style) => (
                   <Badge className="text-black" key={style}>
@@ -128,6 +129,7 @@ export default function Outfits() {
               </CardFooter>
             </Card>
           ))}
+        </div>
         </div>
       )}
     </div>
